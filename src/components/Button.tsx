@@ -1,18 +1,20 @@
+import { type ReactNode } from "react";
+
 type ButtonProps = {
-  label: string;
-  onClick: () => void;
+  children: ReactNode;
+  onPress: () => void;
   disabled?: boolean;
-  variant?: "primary" | "secondary";
+  intent?: "primary" | "secondary";
 };
 
-export function Button({ label, onClick, disabled = false, variant = "primary" }: ButtonProps) {
+export function Button({ children, onPress, disabled = false, intent = "primary" }: ButtonProps) {
   return (
     <button
-      className={`btn btn-${variant}`}
-      onClick={onClick}
+      className={`btn btn-${intent}`}
+      onClick={onPress}
       disabled={disabled}
     >
-      {label}
+      {children}
     </button>
   );
 }
